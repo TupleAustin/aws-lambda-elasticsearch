@@ -5,20 +5,26 @@
  *
  * Uses the aws-sdk to make signed requests to an Amazon ES endpoint.
  * Define the Amazon ES config and the connection handler
- * in the client configuration:
+ * in the client configuration.
  *
+ * @class HttpAmazonESConnector
+ * @extends HttpConnector
+ * @see {@link https://github.com/elastic/elasticsearch-js/blob/master/src/lib/connectors/http.js}
+ *
+ * @example
  * var es = require('elasticsearch').Client({
  *  hosts: 'https://amazon-es-host.us-east-1.es.amazonaws.com',
- *  connectionClass: require('http-aws-es'),
+ *  connectionClass: require('aws-lambda-elasticsearch'),
  *  amazonConfig: {
- *    region: 'us-east-1' // Optional - fallback to ENV or 'us-east-1'
+ *    region: 'us-east-1'
  *  }
  * });
  *
- * @param client {Client} - The Client that this class belongs to
- * @param config {Object} - Configuration options
- * @param [config.protocol=http:] {String} - The HTTP protocol that this connection will use, can be set to https:
- * @class HttpConnector
+ * @param client {Object} - The options object passed to the `Client` class
+ * @param client.connectionClass {Class} - The new connection class `aws-lambda-elasticsearch`
+ * @param [client.amazonConfig] {Object} - Specify Amazon specific configuration
+ * @param [client.amazonConfig.region] {String} - The region of the search cluster. Falls back to
+ * `process.env.AWS_REGION` or 'us-east-1'
  */
 
 var AWS = require('aws-sdk');
