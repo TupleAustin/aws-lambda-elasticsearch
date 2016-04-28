@@ -1,0 +1,21 @@
+{
+  "name": "aws-lambda-elasticsearch",
+  "version": "0.0.1",
+  "description": "Access an Elasticsearch service from AWS Lambda ported from http-aws-es. Make aws-sdk a dev dependency and changes how credentials are accessed.",
+  "main": "index.js",
+  "private": true,
+  "dependencies": {
+    "elasticsearch": "^11.0.1"
+  },
+  "devDependencies": {
+    "aws-sdk": "^2.3.6"
+  },
+  "keywords": [
+    "aws",
+    "lambda",
+    "elastic",
+    "elasticsearch"
+  ],
+  "author": "",
+  "license": "ISC"
+}
