@@ -49,9 +49,13 @@ class HttpAmazonESConnector extends HttpConnector {
     this.endpoint = new AWS.Endpoint(host.host);
     this.amazonConfig = config.amazonConfig || {};
 
-    getCredentials(function findCreds(err, creds) {
-      this.credentials = creds;
-    }.bind(this));
+    if (this.amazonConfig.credentials) {
+      this.credentials = this.amazonConfig.credentials;
+    } else {
+      getCredentials(function findCreds(err, creds) {
+        this.credentials = creds;
+      }.bind(this));
+    }
   }
 
   request(params, cb) {
