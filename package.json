@@ -3,7 +3,6 @@
   "version": "0.2.0",
   "description": "Access an Elasticsearch service from AWS Lambda ported from http-aws-es. Make aws-sdk a dev dependency and changes how credentials are accessed.",
   "main": "index.js",
-  "private": true,
   "dependencies": {
     "elasticsearch": "^11.0.1"
   },
@@ -16,6 +15,6 @@
     "elastic",
     "elasticsearch"
   ],
-  "author": "",
-  "license": "ISC"
+  "author": "Jay Morrow <j.morrow@wearetuple.co>",
+  "license": "MIT"
 }
